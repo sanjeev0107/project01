@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+    body {
+      background-color: rgb(230, 20, 173);
+    }
+    
+    @media screen and (min-width: 400px) {
+      body {
+        background-color: rgb(238, 200, 144);
+      }
+    }
+    
+    @media screen and (max-width: 800px) {
+      body {
+        background-color: rgb(17, 54, 104);
+      }
+    }
+    </style>
+</head>
+<body>
+    <div class="container ml-auto">
+        <div class="jumbotron">
+          <h1>current time and date is</h1>      
+          <p id="d"></p>
+        </div>      
+      </div>
+      <button id="location-button">click</button>
+<script>
+//alert("hi");
+/*setInterval((localtime) => {
+var d=new Date();
+var date=d.toLocaleDateString();
+var time=d.getHours() + ':' + d.getMinutes() + ':'+ d.getSeconds();
+document.getElementById('d').innerHTML=time+ '\xa0\xa0on\xa0' +date;
+document.getElementById("d").setAttribute(
+   "style", "font-size: 100px; font-style: italic; color:#er0010;color:blue");
+
+}, 1000);*
+*/
+$('location-button').click(function(){
+  if(navigator.geolocation)
+    navigator.geolocation.getCurrentPosition(function(position){
+      console.log(position);
+    });
+    else
+      console.log("geolocation is not found");
+})
+</script>
+</body>
+</html>
